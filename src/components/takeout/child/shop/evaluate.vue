@@ -110,11 +110,11 @@ import main_loading from '@/components/common/main_loading'
       count:0,
       evaluate_user:[{title:'test'},{title:'test'},{title:'test'}],
        imgList: [{
-                u: 'http://localhost/element/img/findtwo_03.png',
+                u: 'http://106.14.144.79/element/img/findtwo_03.png',
                 w:320,
                 h:320
             }, {
-                u: 'http://localhost/element/img/dd.png',
+                u: 'http://106.14.144.79/element/img/dd.png',
                 w:320,
                 h:320
             }]
