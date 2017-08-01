@@ -53,7 +53,6 @@ import food_order from '@/components/order/food_order'
 import order_breakfast from '@/components/order/breakfast'
 import test from '@/page/test'
 Vue.use(Router)
-
 export default new Router({
   routes: [
     {

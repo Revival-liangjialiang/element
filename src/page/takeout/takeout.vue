@@ -11,6 +11,8 @@
 </transition>  
 </div>
 </template>
+<style type="text/css">
+</style>
 <script type="text/babel">
 import my_header from '../../components/takeout/header'
 import my_bnner from '../../components/takeout/bnner'
