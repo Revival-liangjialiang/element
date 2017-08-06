@@ -411,7 +411,11 @@ export default {
   },
   methods: {
     switchStyle: function(index) {
-      this.requestData()
+      this.requestData().then((res)=>{
+         this.data = res.data
+      },(err)=>{
+        console.log('recommend.vue 组件请求数据时发生错误 在component/takeout/目录下')
+      })
       this.frontElement.style.color = '#19ddff';
       this.frontElement.style.borderBottom = "0.1rem solid #2395ff";
       this.currentElement = document.getElementById(index);
@@ -424,17 +428,18 @@ export default {
       } else {
         this.parent.style.left = '0px'
       }
-
     },
-    requestData() {
-      this.$http({
+    requestData:function(){
+      // 这里加入promise主要为了演示，真实项目像这么简单的响应逻辑不需要加promise
+      return new promise((resolve,reject)=>{
+         this.$http({
         method: 'POST',
         url: 'rec.php'
       }).then((res) => {
-        console.log('获取数据')
-        this.data = res.data
+        resolve(res)
       }, (error) => {
-        console.log('recommend.vue 组件请求数据时发生错误 在component/takeout/目录下')
+        reject(error)
+      })
       })
     },
     comclick(item, text) {

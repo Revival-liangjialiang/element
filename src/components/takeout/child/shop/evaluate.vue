@@ -298,16 +298,14 @@ export default {
     }
   },
   created: function() {
-    this.$http({
-      method: 'get',
-      url: 'evaluate.php'
-    }).then((res) => {
-      this.showLoading = false
+   this.request().then((res)=>{
+    console.log('nono')
+    this.showLoading = false
       this.data = res.data
       this.calculation()
-    }, (err) => {
+   },(err)=>{
 
-    })
+   })
   },
   components: {
     myMainloading: main_loading
@@ -325,6 +323,19 @@ export default {
       this.count += parseInt(this.data.title9)
       this.count += parseInt(this.data.title10)
       this.count += parseInt(this.data.title11)
+    },
+    request:function(){
+      return new Promise((resolve, reject) =>{
+         this.$http({
+      method: 'get',
+      url: 'evaluate.php'
+    }).then((res) => {
+ console.log('okok')
+      resolve(res)
+    }, (err) => {
+      reject(err)
+    })
+      })
     }
   },
   mounted: () => {
